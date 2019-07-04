@@ -32,7 +32,7 @@ services:
     build:
       context: fluentd/
     volumes:
-      - /opt/gauge-apps/webhook-facebook/logs/webhook-facebook.log:/fluentd/log/webhook-facebook.log
+      - /opt/gauge-apps/pct-subscriber/logs:/fluentd/log/pct-subscriber.log
     ports:
       - "24224:24224"
     networks:
