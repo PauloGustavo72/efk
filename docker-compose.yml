@@ -1,10 +1,10 @@
 version: '2'
 
 services:
-
   elasticsearch:
     build:
       context: elasticsearch/
+    container_name: elasticsearch
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
     ports:
@@ -19,6 +19,7 @@ services:
   kibana:
     build:
       context: kibana/
+    container_name: kibana
     volumes:
       - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro
     ports:
@@ -31,6 +32,7 @@ services:
   fluentd:
     build:
       context: fluentd/
+    container_name: fluentd
     volumes:
       - /opt/gauge-apps/pct-subscriber/logs:/fluentd/log/pct-subscriber.log
     ports:
@@ -39,6 +41,5 @@ services:
       - elk
 
 networks:
-
   elk:
     driver: bridge
